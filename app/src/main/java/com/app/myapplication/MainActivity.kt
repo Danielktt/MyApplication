@@ -24,7 +24,6 @@ private lateinit var binding: ActivityMainBinding
      setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-        initRecycleView()
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -34,9 +33,5 @@ private lateinit var binding: ActivityMainBinding
         navView.setupWithNavController(navController)
     }
 
-    fun initRecycleView() {
-        val rV = findViewById<RecyclerView>(R.id.recycleLugares)
-        rV.layoutManager = GridLayoutManager(this, 2)
-        rV.adapter = LugarTuristicoAdapter(LugarTuristicoProvider.lugaresTuristicoList)
-    }
+
 }
