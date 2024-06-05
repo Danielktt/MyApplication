@@ -18,6 +18,9 @@
     <color name="blanco">#FFFFFF</color>
     <color name="pelota_esquina">#6AE0D9</color>
     <!--Home -->
+    <color name="White_100">#ffffff</color>
+    <color name="Black_60">#99000000</color>
+    <color name="material_color_yellow_700">#fbc02d</color>
 
 
 </resources>

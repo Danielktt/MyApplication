@@ -7,11 +7,15 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.app.myapplication.adapter.LugarTuristicoAdapter
 import com.app.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
 private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +24,7 @@ private lateinit var binding: ActivityMainBinding
      setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
+        initRecycleView()
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -28,5 +32,11 @@ private lateinit var binding: ActivityMainBinding
             R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun initRecycleView() {
+        val rV = findViewById<RecyclerView>(R.id.recycleLugares)
+        rV.layoutManager = GridLayoutManager(this, 2)
+        rV.adapter = LugarTuristicoAdapter(LugarTuristicoProvider.lugaresTuristicoList)
     }
 }
